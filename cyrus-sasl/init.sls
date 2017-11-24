@@ -1,15 +1,15 @@
-{# cyrus-sasl #}
+{# cyrus_sasl #}
 
-{% from "cyrus-sasl/map.jinja" import cyrus-sasl_settings with context %}
+{% from "cyrus_sasl/map.jinja" import cyrus_sasl_settings with context %}
 
-cyrus-sasl:
+cyrus_sasl:
   pkg.installed:
-    - pkgs: {{ cyrus-sasl_settings.lookup.pkgs }}
+    - pkgs: {{ cyrus_sasl_settings.lookup.pkgs }}
 
-{% if cyrus-sasl_settings.manage_service|default(True) == True %}
+{% if cyrus_sasl_settings.manage_service|default(True) == True %}
 saslauthd:
   service.running:
-    - name: {{ cyrus-sasl_settings.lookup.service_name }}
+    - name: {{ cyrus_sasl_settings.lookup.service_name }}
     - enable: True
 {% endif %}
 

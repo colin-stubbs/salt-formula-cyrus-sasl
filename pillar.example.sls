@@ -1,4 +1,4 @@
-cyrus-sasl:
+cyrus_sasl:
   lookup:
     pkgs:
       - cyrus-sasl

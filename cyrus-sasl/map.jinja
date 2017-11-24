@@ -1,14 +1,14 @@
-{% import_yaml 'cyrus-sasl/defaults.yaml' as default_settings %}
+{% import_yaml 'cyrus_sasl/defaults.yaml' as default_settings %}
 
 {% set os_family_map = salt['grains.filter_by']({
     'default': { },
-  }, grain='os_family', default='default', merge=salt['pillar.get']('cyrus-sasl:lookup')) %}
+  }, grain='os_family', default='default', merge=salt['pillar.get']('cyrus_sasl:lookup')) %}
 
-{% do default_settings.cyrus-sasl.update(os_family_map) %}
+{% do default_settings.cyrus_sasl.update(os_family_map) %}
 
-{% set cyrus-sasl_settings = salt['pillar.get'](
-    'cyrus-sasl',
-    default=default_settings.cyrus-sasl,
+{% set cyrus_sasl_settings = salt['pillar.get'](
+    'cyrus_sasl',
+    default=default_settings.cyrus_sasl,
     merge=True,
   )
 %}
